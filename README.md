@@ -1,3 +1,6 @@
+
+![symfoni](https://github.com/Shad-e/mvc/assets/149952217/cae1cb85-0b06-46a1-afa6-eaf4d5ea3657)
+
 # My Symfony-based Project
 
 This is my Symfony-based project. This README document contains instructions on how to clone the project and set it up locally.
