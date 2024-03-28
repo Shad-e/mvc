@@ -1,0 +1,14 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Home{% endblock %}
+
+{% block body %}
+    <div class="home-container">
+    <h1>Om mig</h1>
+    <p>Mitt namn är Linus Sandin. Född och uppvuxen söderut i landet, i Helsingborg, Skåne. Jag studerar Webbprogrammering på Blekinge Tekniska Högskola.</p>
+    <p>På fritiden gillar jag att umgås med nära och kära, spela datorspel men har även funnit en stor glädje i att träna och aktivera mig själv. Det kan behövas efter alla timmar framför skärmen.</p>
+    <p>Mitt favoritspel under alla mina år som "gamer" är Tibia, utan tvekan. Fantastiskt spel, trots alla år det har på nacken!</p>
+
+    <img src="{{ asset('img/me.jpg') }}" alt="">
+    </div>
+{% endblock %}

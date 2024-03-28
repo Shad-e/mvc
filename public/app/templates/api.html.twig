@@ -1,0 +1,8 @@
+{% extends "base.html.twig" %}
+
+{% block title %}API:n{% endblock %}
+
+{% block body %}
+    <h1>Tillgängliga API:n</h1>
+    <a href="{{ path('api_quote') }}">Hämta dagens citat</a>
+{% endblock %}
