@@ -1,5 +1,8 @@
 header {
-    height: 200px;
+    height: 150px;
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 body {
@@ -9,11 +12,11 @@ body {
 footer {
     background-color: #333; /* Example background color */
     color: #fff; /* Example text color */
-    padding: 20px;
     position: fixed;
     bottom: 0;
     width: 100%;
     text-align: center;
+    height: 40px;
 }
 
 main {
@@ -29,6 +32,14 @@ nav {
 nav a {
     text-decoration: none;
     margin: 10px;
+}
+
+a {
+    color: #004085
+}
+
+a:hover {
+    color: #2d6eb3
 }
 
 .container {
@@ -59,4 +70,40 @@ ul, li {
 
 ul a {
     text-decoration: none;
+}
+
+/**
+* kmom02
+*/
+
+input {
+    font-size: 1em;
+}
+
+h1 {
+    border-bottom: 4px double green;
+}
+
+.die {
+    font-size: 4em;
+}
+
+.flash-notice {
+    padding: 0.5em;
+    color: #004085;
+    background-color: #cce5ff;
+    border-color: #b8daff;
+}
+.flash-notice:before {
+    content: "ⓘ";
+}
+
+.flash-warning {
+    padding: 0.5em;
+    color: #856404;
+    background-color: #fff3cd;
+    border-color: #ffeeba;
+}
+.flash-warning:before {
+    content: "⚠";
 }
