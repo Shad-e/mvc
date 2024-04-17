@@ -1,0 +1,15 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Card Game{% endblock %}
+
+{% block body %}
+<h1>Blackjack</h1>
+
+<p>Blackjack is an incredibly popular, exciting and easy card game to play. The object is to have a hand with a total value higher than the dealer's without going over 21. You can read more on 
+the <a href="https://en.wikipedia.org/wiki/Blackjack"> 
+basics of the game on Wikipedia</a>.</p>
+
+<a href="{{ path('pig_init_get') }}">Play the game</a>
+
+
+{% endblock %}
