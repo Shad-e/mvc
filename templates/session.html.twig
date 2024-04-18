@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Session Data{% endblock %}
+
+{% block body %}
+    <h1>Session Data</h1>
+<form action="{{ path('delete_session') }}" method="GET">
+    <button type="submit" class="button">Clear session</button>
+</form>
+    <ul>
+        {% for key, value in sessionData %}
+            <li><strong>{{ key }}:</strong> 
+                {% if value is iterable %}
+                    <ul>
+                        {% for subValue in value %}
+                            <li>{{ subValue }}</li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    {{ value }}
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
