@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Drawn Cards{% endblock %}
+
+{% block body %}
+    <h1>Drawn Cards</h1>
+    
+    {% if drawn_cards is empty %}
+        <p>No cards drawn.</p>
+    {% else %}
+        <div class="drawn-cards">
+            {% for card in drawn_cards %}
+                <span class="drawn-card">
+                    <span class="card">{{ card.symbol | raw }}</span>
+                </span>
+            {% endfor %}
+        </div>
+    {% endif %}
+    
+    <p>Remaining Cards Count: {{ remaining_cards_count }}</p>
+{% endblock %}
