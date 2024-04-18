@@ -9,7 +9,18 @@
 the <a href="https://en.wikipedia.org/wiki/Blackjack"> 
 basics of the game on Wikipedia</a>.</p>
 
-<a href="{{ path('pig_init_get') }}">Play the game</a>
+<form action="{{ path('draw_card') }}" method="GET">
+    <button type="submit" class="button">Draw one card</button>
+</form>
+
+<form action="{{ path('card_deck') }}" method="GET">
+    <button type="submit" class="button">See card deck</button>
+</form>
+
+<form action="{{ path('card_deck_shuffle') }}" method="GET">
+    <button type="submit" class="button">Shuffle cards</button>
+</form>
+
 
 
 {% endblock %}
