@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Drawn Card{% endblock %}
+
+{% block body %}
+    <h1>Drawn Card</h1>
+    <span class="drawn-card">
+        <p>Drawn Card:</p><span class="card">{{ card | raw }}</span>
+        <p>Remaining Cards in Deck: {{ remaining_cards_count }}</p>
+    </span>
+<form action="{{ path('draw_card') }}" method="GET">
+    <button type="submit" class="button">Draw a random card</button>
+</form>
+{% endblock %}
