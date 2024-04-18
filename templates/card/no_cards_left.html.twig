@@ -1,0 +1,11 @@
+{# templates/card/no_cards_left.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}No Cards Left{% endblock %}
+
+{% block body %}
+{{ include ('flash.html.twig') }}
+<p>Shuffle the cards to go again!</p>
+<a href="{{ path('card_deck_shuffle') }}">Shuffle cards</a>
+{% endblock %}
