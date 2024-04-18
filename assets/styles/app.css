@@ -21,7 +21,7 @@ footer {
 
 main {
     margin: 0 auto;
-    max-width: 600px;
+    max-width: 750px;
 }
 
 nav {
@@ -107,3 +107,25 @@ h1 {
 .flash-warning:before {
     content: "⚠";
 }
+
+.card {
+    font-size: 5em;
+}
+
+.card-red {
+    color: red;
+}
+
+.button {
+    background-color: #004085;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 8px;
+  }
