@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Shuffled Deck of Cards{% endblock %}
+
+{% block body %}
+    <h1>Shuffled Deck of Cards</h1>
+    <span class="card-deck">
+        {% for card in cards %}
+            <span class="card">{{ card | raw }}</span>
+        {% endfor %}
+    </span>
+    <form action="{{ path('draw_card') }}" method="GET">
+        <button type="submit" class="button">Draw a random card</button>
+    </form>
+{% endblock %}
+
