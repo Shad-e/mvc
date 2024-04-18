@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Deck of Cards{% endblock %}
+
+{% block body %}
+    <h1>Deck of Cards</h1>
+    <span class="card-deck">
+        {% set rowCount = 0 %}
+        <span class="card-row">
+            {% for card in cards %}
+                <span class="card">{{ card | raw }}</span>
+                {% set rowCount = rowCount + 1 %}
+                {% if rowCount == 13 %}
+                    {% set rowCount = 0 %}
+                    </span><span class="card-row">
+                {% endif %}
+            {% endfor %}
+        </span>
+    </span>
+
+<form action="{{ path('card_deck_shuffle') }}" method="GET">
+    <button type="submit" class="button">Shuffle cards</button>
+</form>
+{% endblock %}
+
+
+
+
+{# {% extends "base.html.twig" %}
+
+{% block title %}Pig Game{% endblock %}
+
+{% block body %}
+<h1>Roll many dice</h1>
+
+<p>You rolled {{ num_dices }} dices. Here is the value of the dices.</p>
+
+{% for roll in diceRoll %}
+<span class="die">{{ roll }}</span>
+{% endfor %}
+
+
+<p>Try to roll 
+    <a href="{{ path('test_roll_num_dices', {num: 5}) }}">5</a>
+    or 
+    <a href="{{ path('test_roll_num_dices', {num: 10}) }}">10</a>
+    dices.
+</p>
+{% endblock %} #}
