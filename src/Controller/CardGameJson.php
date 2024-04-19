@@ -82,4 +82,25 @@ class CardGameJson
         return new JsonResponse($data);
 }
 
+    #[Route("/api/deck/draw/{count}", name: "draw_cards", requirements: ["count" => "\d+"])]
+    public function drawMultipleCards(int $count, SessionInterface $session): Response
+    {
+        $deck = $session->get('shuffled_cards', []);
+
+        if (count($deck) < $count) {
+            return new JsonResponse(['message' => 'Not enough cards left in the deck'], Response::HTTP_NOT_FOUND);
+        }
+
+        $drawnCards = array_splice($deck, 0, $count);
+
+        $session->set('shuffled_cards', $deck);
+
+        $data = [
+            'drawn_cards' => $drawnCards,
+            'remaining_cards' => count($deck),
+        ];
+
+        return new JsonResponse($data);
+    }
+
 }
