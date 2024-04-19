@@ -88,7 +88,22 @@ h1 {
     font-size: 4em;
 }
 
+.flash-success {
+    border-radius: 5px;
+    padding: 0.5em;
+    color: #0a2701;
+    background-color: #16ab43;
+    border-color: #00982e;
+}
+
+
+.flash-success:before {
+    content: "ⓘ";
+}
+
+
 .flash-notice {
+    border-radius: 5px;
     padding: 0.5em;
     color: #004085;
     background-color: #cce5ff;
@@ -99,6 +114,7 @@ h1 {
 }
 
 .flash-warning {
+    border-radius: 5px;
     padding: 0.5em;
     color: #856404;
     background-color: #fff3cd;
