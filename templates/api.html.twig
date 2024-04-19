@@ -4,5 +4,28 @@
 
 {% block body %}
     <h1>Tillgängliga API:n</h1>
-    <a href="{{ path('api_quote') }}">Hämta dagens citat</a>
+<form action="{{ path('api_quote') }}" method="GET">
+    <button type="submit" class="button">Quote of the day</button>
+</form>
+<br>
+
+<h2>Card Game</h2>
+<div class="button-row">
+<form action="{{ path('api_deck') }}" method="GET">
+    <button type="submit" class="button">Card Deck</button>
+</form>
+
+<form action="{{ path('api_deck_shuffle') }}" method="GET">
+    <button type="submit" class="button">Shuffle deck</button>
+</form>
+
+<form action="{{ path('api_draw_card') }}" method="GET">
+    <button type="submit" class="button">Draw card</button>
+</form>
+
+<form action="{{ path('api_draw_cards', {'count': 5}) }}" method="GET">
+    <button type="submit" class="button">Draw 5 cards</button>
+</form>
+</div>
+
 {% endblock %}
