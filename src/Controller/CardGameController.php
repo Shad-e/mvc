@@ -30,7 +30,10 @@ class CardGameController extends AbstractController
     public function deleteSession(SessionInterface $session): Response
     {
         $session->clear();
-
+        $this->addFlash(
+            'success',
+            'Session data was cleared!'
+        );
         return $this->redirectToRoute('session_page');
     }
 
@@ -113,7 +116,11 @@ class CardGameController extends AbstractController
         $data = [
             "cards" => $cardSymbols,
         ];
-    
+
+        $this->addFlash(
+            'success',
+            'Cards were shuffled! Session data cleared.'
+        );
         return $this->render('card/card_deck_shuffle.html.twig', $data);
     }
 
