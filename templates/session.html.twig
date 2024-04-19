@@ -4,6 +4,7 @@
 
 {% block body %}
     <h1>Session Data</h1>
+    {{ include ('flash.html.twig') }}
 <form action="{{ path('delete_session') }}" method="GET">
     <button type="submit" class="button">Clear session</button>
 </form>
