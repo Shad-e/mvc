@@ -30,25 +30,25 @@ class CardGameJson
 
         return $response;
     }
-    
+
     #[Route("/api/deck/shuffle", name: "api_deck_shuffle")]
     public function jsonDeckShuffle(SessionInterface $session): Response
     {
         $cardNames = array_keys(Card::CARDS);
-    
+
         shuffle($cardNames);
-    
+
         $session->set('shuffled_cards', $cardNames);
-    
+
         $data = [
             "cards" => $cardNames,
         ];
-    
+
         $response = new JsonResponse($data);
         $response->setEncodingOptions(
             $response->getEncodingOptions() | JSON_PRETTY_PRINT
         );
-    
+
         return $response;
     }
 
@@ -80,7 +80,7 @@ class CardGameJson
         ];
 
         return new JsonResponse($data);
-}
+    }
 
     #[Route("/api/deck/draw/{count}", name: "api_draw_cards", requirements: ["count" => "\d+"])]
     public function drawMultipleCards(int $count, SessionInterface $session): Response
