@@ -82,7 +82,7 @@ class CardGameJson
         return new JsonResponse($data);
 }
 
-    #[Route("/api/deck/draw/{count}", name: "draw_cards", requirements: ["count" => "\d+"])]
+    #[Route("/api/deck/draw/{count}", name: "api_draw_cards", requirements: ["count" => "\d+"])]
     public function drawMultipleCards(int $count, SessionInterface $session): Response
     {
         $deck = $session->get('shuffled_cards', []);
