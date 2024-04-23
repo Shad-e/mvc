@@ -4,23 +4,25 @@
 
 {% block body %}
     <h1>Session Data</h1>
-    {{ include ('flash.html.twig') }}
-<form action="{{ path('delete_session') }}" method="GET">
-    <button type="submit" class="button">Clear session</button>
-</form>
-    <ul>
-        {% for key, value in sessionData %}
-            <li><strong>{{ key }}:</strong> 
-                {% if value is iterable %}
-                    <ul>
-                        {% for subValue in value %}
-                            <li>{{ subValue }}</li>
-                        {% endfor %}
-                    </ul>
-                {% else %}
-                    {{ value }}
-                {% endif %}
-            </li>
-        {% endfor %}
-    </ul>
+        {{ include ('flash.html.twig') }}
+    <form action="{{ path('delete_session') }}" method="GET">
+        <button type="submit" class="button">Clear session</button>
+    </form>
+
+    
+    {% if remaining_cards is empty %}
+        <p>No cards available.</p>
+    {% else %}
+        <h2>Cards</h2>
+        <ul>
+            {% if remaining_cards is not empty %}
+                <li><strong>Remaining Cards:</strong></li>
+                <ul>
+                    {% for card in remaining_cards %}
+                        <li>{{ card }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </ul>
+    {% endif %}
 {% endblock %}
