@@ -17,6 +17,10 @@ basics of the game on Wikipedia</a>.</p>
     <button type="submit" class="button">See card deck</button>
 </form>
 
+<form action="{{ path('card_deck_with_jokers') }}" method="GET">
+    <button type="submit" class="button">See card deck with jokers</button>
+</form>
+
 <form action="{{ path('card_deck_shuffle') }}" method="GET">
     <button type="submit" class="button">Shuffle cards</button>
 </form>
