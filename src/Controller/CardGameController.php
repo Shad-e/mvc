@@ -25,8 +25,6 @@ class CardGameController extends AbstractController
         ]);
     }
 
-
-
     #[Route("/session/delete", name: "delete_session")]
     public function deleteSession(SessionInterface $session): Response
     {
