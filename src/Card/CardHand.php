@@ -2,25 +2,27 @@
 
 namespace App\Card;
 
-class CardHand extends Card
+class CardHand
 {
-    protected $hand;
+    protected $cards;
 
-    public function __construct(array $hand)
+    public function __construct(array $cardNames)
     {
-        $this->hand = $hand;
+        $this->cards = array_map(function ($name) {
+            return new Card($name);
+        }, $cardNames);
     }
 
     public function getHand(): array
     {
-        return $this->hand;
+        return $this->cards;
     }
 
     public function getHandSymbols(): array
     {
         $symbols = [];
-        foreach ($this->hand as $card) {
-            $symbols[] = $this->getCardSymbol($card);
+        foreach ($this->cards as $card) {
+            $symbols[] = $card->getCardSymbol();
         }
         return $symbols;
     }
