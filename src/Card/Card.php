@@ -70,17 +70,37 @@ class Card
     public function getCardSymbol(): string
     {
         $symbol = self::CARDS[$this->name];
-        // Extract the suit from the card name
+
         $suit_hearts = substr($this->name, -6);
         $suit_diamonds = substr($this->name, -8);
 
-        // Check if the suit is hearts or diamonds and apply the corresponding CSS class
         if ($suit_hearts === "Hearts" || $suit_diamonds === "Diamonds") {
-            // Add a CSS class for hearts and diamonds
+
             $symbol = '<span class="card-red">' . $symbol . '</span>';
         }
 
         return $symbol;
     }
+}
 
+class JokerCard extends Card
+{
+    public const JOKER_CARDS = [
+        'Red Joker' => '&#127167;',
+        'White Joker' => '&#127199;',
+    ];
+
+    public function __construct($name)
+    {
+        parent::__construct($name);
+    }
+
+    public function getCardSymbol(): string
+    {
+        if (array_key_exists($this->name, self::JOKER_CARDS)) {
+            return self::JOKER_CARDS[$this->name];
+        }
+
+        return parent::getCardSymbol();
+    }
 }
