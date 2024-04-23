@@ -19,12 +19,12 @@ class CardGameController extends AbstractController
     public function landingPage(SessionInterface $session): Response
     {
         $sessionData = $session->all();
-    
+
         return $this->render('session.html.twig', [
             'remaining_cards' => $sessionData['remaining_cards'] ?? [],
         ]);
     }
-    
+
 
 
     #[Route("/session/delete", name: "delete_session")]
@@ -86,17 +86,17 @@ class CardGameController extends AbstractController
     {
         $deck = new DeckOfCards(false); // Skapar en kortlek utan jokrar
         $cards = $deck->getCards();
-    
+
         $cardSymbols = [];
         foreach ($cards as $card) {
             $cardSymbols[] = $card->getCardSymbol();
         }
-    
+
         $data = [
             "cards" => $cardSymbols,
         ];
-    
-        return $this->render('card/card_deck.html.twig', $data);    
+
+        return $this->render('card/card_deck.html.twig', $data);
     }
 
     #[Route("/card/deck_with_joker", name: "card_deck_with_jokers")]
@@ -104,10 +104,10 @@ class CardGameController extends AbstractController
     {
         $deck = new DeckOfCards(true);
         $cards = $deck->getCards();
-    
+
         $regularCards = [];
         $jokerCards = [];
-    
+
         foreach ($cards as $card) {
             if ($card instanceof JokerCard) {
                 $jokerCards[] = $card->getCardSymbol();
@@ -115,15 +115,15 @@ class CardGameController extends AbstractController
                 $regularCards[] = $card->getCardSymbol();
             }
         }
-    
+
         $data = [
             "cards" => $regularCards,
             "jokers" => $jokerCards,
         ];
-    
+
         return $this->render('card/card_deck_joker.html.twig', $data);
     }
-    
+
 
     #[Route("/card/deck/shuffle", name: "card_deck_shuffle")]
     public function deckOfCardsShuffled(SessionInterface $session): Response
